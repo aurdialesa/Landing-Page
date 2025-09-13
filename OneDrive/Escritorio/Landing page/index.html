@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVision Solutions - Innovación Tecnológica</title>
+    
+    <!-- Enlaces a archivos CSS externos -->
+    <link rel="stylesheet" href="estilos_generales.css">
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">TechVision</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Innovamos el Futuro Digital</h1>
+                <p>Transformamos ideas en soluciones tecnológicas que impulsan el crecimiento de tu negocio</p>
+                <a href="#contacto" class="cta-button">Comienza Tu Proyecto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Desarrollo Web</h3>
+                    <p>Creamos sitios web modernos, responsivos y optimizados que destacan tu marca en el mundo digital.</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Apps Móviles</h3>
+                    <p>Desarrollamos aplicaciones móviles nativas e híbridas para iOS y Android con la mejor experiencia de usuario.</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>Soluciones Cloud</h3>
+                    <p>Implementamos arquitecturas en la nube escalables y seguras para optimizar tus procesos empresariales.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission and Vision Section -->
+    <section id="nosotros">
+        <div class="container">
+            <h2 class="section-title">Nuestra Filosofía</h2>
+            <div class="mission-vision">
+                <article class="mission-card">
+                    <h3>🎯 Misión</h3>
+                    <p>Empoderar a las empresas mediante soluciones tecnológicas innovadoras y personalizadas, facilitando su transformación digital y crecimiento sostenible en un mundo cada vez más conectado. Nos comprometemos a ofrecer servicios de excelencia que generen valor real y duradero para nuestros clientes.</p>
+                </article>
+                <article class="vision-card">
+                    <h3>🚀 Visión</h3>
+                    <p>Ser la empresa líder en innovación tecnológica de la región, reconocida por nuestra capacidad de anticipar las necesidades del mercado y crear soluciones que definan el futuro digital. Aspiramos a construir un ecosistema tecnológico que impulse el desarrollo económico y social de nuestra comunidad.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title">¿Listo para Innovar?</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group floating-label">
+                    <input type="text" id="nombre" name="nombre" placeholder=" " required>
+                    <label for="nombre">Nombre Completo</label>
+                </div>
+                
+                <div class="form-group floating-label">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email">Correo Electrónico</label>
+                </div>
+                
+                <div class="form-group floating-label">
+                    <textarea id="mensaje" name="mensaje" placeholder=" " required></textarea>
+                    <label for="mensaje">Cuéntanos sobre tu proyecto</label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>TechVision Solutions</h3>
+            <div class="social-links">
+                <a href="#">📧</a>
+                <a href="#">📱</a>
+                <a href="#">🌐</a>
+                <a href="#">💼</a>
+            </div>
+            <p>&copy; 2025 TechVision Solutions. Todos los derechos reservados.</p>
+            <p>Innovando el futuro, un proyecto a la vez.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const nombre = formData.get('nombre');
+            const email = formData.get('email');
+            const mensaje = formData.get('mensaje');
+            
+            // Simple validation
+            if (nombre && email && mensaje) {
+                // Simulate form submission
+                const submitBtn = this.querySelector('.submit-btn');
+                submitBtn.innerHTML = '✅ ¡Mensaje Enviado!';
+                submitBtn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = 'Enviar Mensaje';
+                    submitBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                    this.reset();
+                }, 3000);
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and other elements
+        document.querySelectorAll('.service-card, .mission-card, .vision-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
